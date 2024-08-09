@@ -1,0 +1,13 @@
+.main_galeria{
+    padding: 2em 1em;
+    h1{
+        font-size: 2em;
+    }
+    .grid_galeria{
+        display: grid;
+        grid-template-columns: repeat(3 ,1fr);
+        grid-template-rows: auto auto auto;
+        gap: 3em 1em;
+    }
+
+}

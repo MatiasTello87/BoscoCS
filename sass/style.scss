@@ -1,8 +1,107 @@
+
+// Header
+@import 'mixin/header';
+
+// Footer
+@import 'mixin/footer';
+
+// mixins
+@import 'mixin/colores';
+// pages
+@import 'pages/galeria';
+
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: #27a7d2;
+@font-face {
+    font-family: 'Agency';
+    src: url(/assets/fonts/Agency.ttf);
+    font-weight: lighter;
 }
+
+
+body{
+    .container_ppal{
+        min-height: 100dvh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        align-items: center;
+    }
+    header{
+        @include header();
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3em;
+        position: relative;
+        overflow-x: hidden;
+        img{
+            width: 100%;
+        }
+        .titles{
+            padding: 1em;
+            position: absolute;
+            animation: titulo ease-in-out 3.5s;
+            animation-fill-mode: forwards;
+            align-self: self-start;
+            color: rgb(255, 255, 255);
+            h1{
+                font-size: 5em;
+                transform: translateY(-2em);
+                text-wrap: balance;
+                line-height: .9em;
+            }
+            h2{
+                font-size: 2em;
+                transform: translateY(-4em);
+            }
+        }
+        @keyframes titulo {
+            from{
+                transform: translateX(-500px);
+                opacity: 0;
+            }
+            to{
+                transform: translateX(10px);
+                opacity: 1;
+            }
+        }
+        .subtitle{
+            padding: 2em;
+            position: absolute;
+            animation: subtitle ease-in-out 5s;
+            animation-fill-mode: forwards;
+            align-self: self-end;
+            color: rgb(255, 255, 255);
+            p{
+                width: 50%;
+                font-size: 1.5em;
+                font-weight: bold;
+                text-wrap: balance;
+            }
+        }
+        @keyframes subtitle {
+            from{
+                transform: translateX(2000px);
+                opacity: 0;
+            }
+            to{
+                transform: translateX(480px);
+                opacity: 1;
+            }
+        }
+    }
+    footer{
+        @include footer();
+    }
+}
+
+// mediaqueries
+@import 'mixin/mediaqueries.scss';

@@ -1,7 +1,145 @@
+.main_galeria {
+  padding: 2em 1em; }
+  .main_galeria h1 {
+    font-size: 2em; }
+  .main_galeria .grid_galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 3em 1em; }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
-body {
-  background-color: #27a7d2; }
+@font-face {
+  font-family: 'Agency';
+  src: url(/assets/fonts/Agency.ttf);
+  font-weight: lighter; }
+
+body .container_ppal {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center; }
+
+body header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: .3em 2em;
+  gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px inset green; }
+  body header img {
+    width: 50px; }
+  body header nav ul {
+    display: flex;
+    gap: 1em; }
+    body header nav ul li {
+      list-style: none; }
+      body header nav ul li a {
+        font-size: 1.3em;
+        cursor: pointer;
+        text-decoration: none;
+        color: black; }
+    body header nav ul button {
+      display: none; }
+
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  position: relative;
+  overflow-x: hidden; }
+  body main img {
+    width: 100%; }
+  body main .titles {
+    padding: 1em;
+    position: absolute;
+    animation: titulo ease-in-out 3.5s;
+    animation-fill-mode: forwards;
+    align-self: self-start;
+    color: white; }
+    body main .titles h1 {
+      font-size: 5em;
+      transform: translateY(-2em);
+      text-wrap: balance;
+      line-height: .9em; }
+    body main .titles h2 {
+      font-size: 2em;
+      transform: translateY(-4em); }
+
+@keyframes titulo {
+  from {
+    transform: translateX(-500px);
+    opacity: 0; }
+  to {
+    transform: translateX(10px);
+    opacity: 1; } }
+  body main .subtitle {
+    padding: 2em;
+    position: absolute;
+    animation: subtitle ease-in-out 5s;
+    animation-fill-mode: forwards;
+    align-self: self-end;
+    color: white; }
+    body main .subtitle p {
+      width: 50%;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-wrap: balance; }
+
+@keyframes subtitle {
+  from {
+    transform: translateX(2000px);
+    opacity: 0; }
+  to {
+    transform: translateX(480px);
+    opacity: 1; } }
+
+body footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  padding: 1.5em 1em;
+  background-color: #6cc676; }
+
+@media screen and (max-width: 468px) {
+  header nav ul li {
+    display: none; }
+  header nav ul .hamburg {
+    display: block; }
+  .img_ppal {
+    width: 350%; }
+  .titles .title {
+    font-size: 4em;
+    transform: translateY(-2em);
+    text-wrap: balance;
+    line-height: .9em; }
+  .titles .agradecimiento {
+    width: 60%;
+    transform: translateY(-5em);
+    text-wrap: balance;
+    line-height: .9em;
+    font-size: 1.5em; }
+  .subtitle {
+    padding: 2em; }
+  @keyframes subtitle {
+    from {
+      transform: translateY(300px);
+      opacity: 0; }
+    to {
+      transform: translateY(100px);
+      opacity: 1; } }
+  .main_galeria .grid_galeria {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; } }

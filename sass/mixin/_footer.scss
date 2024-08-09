@@ -1,0 +1,6 @@
+@mixin footer(){
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 1.5em 1em;
+    background-color: rgb(108, 198, 118);
+}
